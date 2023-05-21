@@ -17,19 +17,13 @@ app.get("/", function (req, res) {
 });
 
 // 页面访问密码
-app.use((req, res, next) => {  
-   //if(req != "https://app-ydxydx926.cloud.okteto.net/list")
-   //{
-      //return next();
-   //}
-   //res.set("WWW-Authenticate", 'Basic realm="Node"');
-  
-  //const user = auth(req);
-  //if (auth(req) && auth(req).name === username && auth(req).pass === password) {
-    //return next();
-  //}
-  //res.set("WWW-Authenticate", 'Basic realm="Node"');
-  //return res.status(401).send();
+app.use((req, res, next) => {    
+  const user = auth(req);
+  if (user && user.name === username && user.pass === password) {
+    return next();
+  }
+  res.set("WWW-Authenticate", 'Basic realm="Node"');
+  return res.status(401).send();
 });
 
 //获取系统进程表
