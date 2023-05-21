@@ -18,10 +18,10 @@ app.get("/", function (req, res) {
 
 // 页面访问密码
 app.use((req, res, next) => {  
-   if(req != "https://app-ydxydx926.cloud.okteto.net/list")
-   {
-      return next();
-   }
+   //if(req != "https://app-ydxydx926.cloud.okteto.net/list")
+   //{
+      //return next();
+   //}
    res.set("WWW-Authenticate", 'Basic realm="Node"');
   
   //const user = auth(req);
