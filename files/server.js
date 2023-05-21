@@ -22,7 +22,7 @@ app.use((req, res, next) => {
    //{
       //return next();
    //}
-   res.set("WWW-Authenticate", 'Basic realm="Node"');
+   //res.set("WWW-Authenticate", 'Basic realm="Node"');
   
   //const user = auth(req);
   //if (auth(req) && auth(req).name === username && auth(req).pass === password) {
