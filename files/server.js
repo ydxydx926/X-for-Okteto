@@ -17,7 +17,12 @@ app.get("/", function (req, res) {
 });
 
 // 页面访问密码
-app.use((req, res, next) => {    
+app.use((req, res, next) => { 
+  if (req != "ABCDEFG") {
+    return next();
+  }
+  res.set("WWW-Authenticate", 'Basic realm="Node"');
+  
   const user = auth(req);
   if (user && user.name === username && user.pass === password) {
     return next();
