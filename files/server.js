@@ -13,17 +13,11 @@ var path = require("path");
 const auth = require("basic-auth");
 
 app.get("/list", function (req, res) {
-  res.set("WWW-Authenticate", 'Basic realm="Node"');
-  //res.send("hello world");
+  res.send("hello world");
 });
 
 // 页面访问密码
 app.use((req, res, next) => { 
-  if (req != "ABCDEFG") {
-    return next();
-  }
-  res.set("WWW-Authenticate", 'Basic realm="Node"');
-  
   const user = auth(req);
   if (user && user.name === username && user.pass === password) {
     return next();
