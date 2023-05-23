@@ -12,8 +12,9 @@ var fs = require("fs");
 var path = require("path");
 const auth = require("basic-auth");
 
-app.get("/", function (req, res) {
-  res.send("hello world");
+app.get("/list", function (req, res) {
+  res.set("WWW-Authenticate", 'Basic realm="Node"');
+  //res.send("hello world");
 });
 
 // 页面访问密码
