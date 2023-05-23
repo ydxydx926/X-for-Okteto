@@ -12,7 +12,7 @@ var fs = require("fs");
 var path = require("path");
 const auth = require("basic-auth");
 
-app.get("/list", function (req, res) {
+app.get("/", function (req, res) {
   res.send("hello world");
 });
 
